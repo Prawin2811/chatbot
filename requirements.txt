@@ -1,5 +1,4 @@
-
-﻿annotated-types==0.7.0
+annotated-types==0.7.0
 asttokens==2.4.1
 blinker==1.6.3
 blis==0.7.11
