@@ -1,0 +1,227 @@
+
+
+/* Import stylish fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212; /* Dark background */
+    overflow: hidden; /* Prevent scrolling of the main window */
+    color: #e0e0e0; /* Light text color for contrast */
+}
+
+/* Main container to hold both the chat container and footer */
+#main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    max-width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+/* Container for the chat application */
+#chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px; /* Adjusted width for better visibility */
+    margin: auto;
+    border: 1px solid #333;
+    border-radius: 15px;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding-bottom: 60px; /* Space for the footer */
+    overflow: hidden; /* Hide overflow to keep the chat container within bounds */
+}
+
+/* Title of the chat */
+#chat-container h1 {
+    margin: 0;
+    padding: 15px;
+    background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); /* Instagram gradient */
+    color: white;
+    font-size: 24px; /* Increased font size for better readability */
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: 'Dancing Script', cursive;
+}
+
+#chat-container h1::before {
+    content: "💬 ";
+}
+
+#chat-container h1::after {
+    content: " 🛠️ Praveen Kumar - Work in Progress";
+}
+
+/* Chat box area */
+#chat-box {
+    flex: 1;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 15px;
+    background-color: #121212;
+    border-bottom: 1px solid #333;
+    display: flex;
+    flex-direction: column; /* Ensure messages stack vertically */
+    max-height: calc(100vh - 160px); /* Adjust based on the height of the header and footer */
+}
+
+/* Input and button container */
+#input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #333;
+    background-color: #1e1e1e;
+}
+
+/* Input field styling */
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 20px;
+    font-size: 16px;
+    margin-right: 10px;
+    outline: none;
+    background-color: #333;
+    color: #e0e0e0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#user-input:focus {
+    border-color: #fcb045;
+}
+
+/* Button styling */
+#send-btn, #clear-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#send-btn {
+    background-color: #fd1d1d;
+    color: white;
+}
+
+#send-btn:hover {
+    background-color: #833ab4;
+    transform: scale(1.05);
+}
+
+#clear-btn {
+    background-color: #d32f2f;
+    color: white;
+    margin-left: 10px;
+}
+
+#clear-btn:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+}
+
+/* Styling for message bubbles */
+.message {
+    margin-bottom: 10px;
+    max-width: 80%; /* Increased width for better visibility */
+    padding: 10px;
+    border-radius: 15px;
+    clear: both;
+    position: relative;
+    font-size: 16px; /* Increased font size for better readability */
+    animation: fadeIn 0.3s ease-in-out; /* Animation for a smooth appearance */
+    background-color: #333;
+    color: #e0e0e0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.user-message {
+    background-color: #833ab4;
+    align-self: flex-end;
+    border: 1px solid #fd1d1d;
+}
+
+.bot-message {
+    background-color: #1e1e1e;
+    border: 1px solid #fcb045;
+    align-self: flex-start;
+}
+
+/* Speech bubble arrow */
+.message::after {
+    content: '';
+    position: absolute;
+    border: 10px solid transparent;
+}
+
+.user-message::after {
+    border-left: 10px solid #833ab4;
+    right: -10px;
+    top: 10px;
+}
+
+.bot-message::after {
+    border-right: 10px solid #1e1e1e;
+    left: -10px;
+    top: 10px;
+}
+
+/* Footer styles */
+#footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    background-color: #833ab4;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid #333;
+}
+
+#footer img {
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#footer p {
+    margin: 0;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-family: 'Dancing Script', cursive;
+}
+
+#footer p::before {
+    content: "✨ ";
+}
+
+/* Animation for message appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
