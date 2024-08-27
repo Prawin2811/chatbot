@@ -9,7 +9,7 @@ CORS(app)
 # Setup logging
 logging.basicConfig(level=logging.DEBUG)
 
-API_KEY = "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"
+API_KEY = "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"
 API_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions"
 
 @app.route('/')
